@@ -1,15 +1,21 @@
 @import "tailwindcss";
 
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: #E63027;   /* Red — CTA buttons */
+  --color-secondary: #FF7A1A; /* Orange — accents */
+  --color-accent: #FFC42E;    /* Yellow — highlights */
+  --color-cream: #FFF8F0;     /* Warm off-white background */
+  --color-ink: #1A1A1A;       /* Near-black text */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
