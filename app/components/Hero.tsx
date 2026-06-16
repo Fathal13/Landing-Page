@@ -1,11 +1,16 @@
+import { headers } from "next/headers";
 import { getWhatsAppLink } from "../lib/whatsapp";
+import PizzaPoster from "./PizzaPoster";
 import HeroVisual from "./HeroVisual";
 
-export default function Hero() {
+export default async function Hero() {
+  const userAgent = (await headers()).get("user-agent") ?? "";
+  const isMobile = /Android|iPhone|iPad|iPod|Mobile|Opera Mini|IEMobile/i.test(userAgent);
+
   return (
     <section className="min-h-screen bg-cream flex flex-col items-center justify-center px-6 text-center">
       <div className="mb-8 h-64 w-64 sm:h-80 sm:w-80">
-        <HeroVisual />
+        {isMobile ? <PizzaPoster /> : <HeroVisual />}
       </div>
 
       <h1 className="max-w-2xl text-4xl font-extrabold leading-tight text-ink sm:text-5xl md:text-6xl">
